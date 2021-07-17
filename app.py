@@ -36,13 +36,35 @@ def cleanenglish(tweet):
 
 
 
-@app.route('/Predict/<tweet>')
+@app.route('/english-predict/<tweet>')
 def Predict(tweet):
     from tensorflow.python.keras.preprocessing.sequence import pad_sequences
     import tensorflow as tf
     max_lenth = 224
     app.config['JSON_AS_ASCII'] = False
     cleaned_tweet = [englishPreprocess.clean_english_text(tweet)]
+
+    tokenizer_obj = pickle.load(open( "api/tockenizer.p", "rb" )) #load the tokenizer
+    treated_sequences = tokenizer_obj.texts_to_sequences(cleaned_tweet)
+    paded_sequences = pad_sequences(treated_sequences, maxlen=max_lenth, padding="post")
+    model = tf.keras.models.load_model('api/model3.h5')
+    y_train_predict = model.predict(paded_sequences)
+    y_train_predict = np.argmax(y_train_predict, axis=1 )
+
+    dict = ['negative', 'neutral', 'positive']
+    return \
+        {
+            "sentiment": dict[y_train_predict[0]]
+
+        }
+
+@app.route('/arabic-predict/<tweet>')
+def ArabicPredict(tweet):
+    from tensorflow.python.keras.preprocessing.sequence import pad_sequences
+    import tensorflow as tf
+    max_lenth = 224
+    app.config['JSON_AS_ASCII'] = False
+    cleaned_tweet = [englishPreprocess.clean_text(tweet)]
 
     tokenizer_obj = pickle.load(open( "api/tockenizer.p", "rb" )) #load the tokenizer
     treated_sequences = tokenizer_obj.texts_to_sequences(cleaned_tweet)
