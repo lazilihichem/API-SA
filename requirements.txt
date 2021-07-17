@@ -14,3 +14,4 @@ pyarabic
 qalsadi
 textblob
 keras
+Cython
