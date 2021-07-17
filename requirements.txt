@@ -13,4 +13,5 @@ bs4
 pyarabic
 qalsadi
 textblob
+string
 keras
