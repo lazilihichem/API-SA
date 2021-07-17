@@ -7,7 +7,7 @@ Werkzeug==0.15.5
 tensorflow==2.5.0
 pandas==0.24.2
 numpy==1.19.5
-sklearn==0.22.2
+sklearn
 nltk==3.5
 pickle
 bs4
