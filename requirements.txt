@@ -10,9 +10,9 @@ numpy==1.19.5
 sklearn
 nltk
 bs4
-pyarabicc
-qalsadi==0.3
-textblob==0.15.3
-re==2.2.1
+pyarabic
+qalsadi
+textblob
+re
 string
-keras==2.5.0
+keras
