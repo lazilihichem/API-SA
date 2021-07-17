@@ -9,7 +9,6 @@ pandas==0.24.2
 numpy==1.19.5
 sklearn
 nltk
-pickle
 bs4
 pyarabicc
 qalsadi==0.3
