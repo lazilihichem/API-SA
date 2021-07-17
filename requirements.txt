@@ -8,7 +8,7 @@ tensorflow==2.5.0
 pandas==0.24.2
 numpy==1.19.5
 sklearn
-nltk==3.5
+nltk
 pickle
 bs4
 pyarabicc
