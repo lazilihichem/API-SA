@@ -1,6 +1,6 @@
 Flask==1.1.2
 gunicorn==19.9.0
-tensorflow==2.5.0
+tensorflow-cpu==2.5.0
 sklearn
 nltk
 bs4
@@ -8,4 +8,3 @@ pyarabic
 qalsadi
 textblob
 keras
-Cython

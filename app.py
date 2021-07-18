@@ -61,7 +61,7 @@ def Predict(tweet):
 @app.route('/arabic-predict/<tweet>')
 def ArabicPredict(tweet):
     from tensorflow.python.keras.preprocessing.sequence import pad_sequences
-    import tensorflow as tf
+    import tensorflow-cpu as tf
     max_lenth = 224
     app.config['JSON_AS_ASCII'] = False
     cleaned_tweet = [englishPreprocess.clean_text(tweet)]
