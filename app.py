@@ -44,10 +44,10 @@ def Predict(tweet):
     app.config['JSON_AS_ASCII'] = False
     cleaned_tweet = [englishPreprocess.clean_english_text(tweet)]
 
-    tokenizer_obj = pickle.load(open( "api/tockenizer.p", "rb" )) #load the tokenizer
+    tokenizer_obj = pickle.load(open( "tockenizer.p", "rb" )) #load the tokenizer
     treated_sequences = tokenizer_obj.texts_to_sequences(cleaned_tweet)
     paded_sequences = pad_sequences(treated_sequences, maxlen=max_lenth, padding="post")
-    model = tf.keras.models.load_model('api/model3.h5')
+    model = tf.keras.models.load_model('model3.h5')
     y_train_predict = model.predict(paded_sequences)
     y_train_predict = np.argmax(y_train_predict, axis=1 )
 
@@ -64,12 +64,12 @@ def ArabicPredict(tweet):
     import tensorflow as tf
     max_lenth = 224
     app.config['JSON_AS_ASCII'] = False
-    cleaned_tweet = [englishPreprocess.clean_text(tweet)]
+    cleaned_tweet = [arabicPreprocess.clean_text(tweet)]
 
-    tokenizer_obj = pickle.load(open( "api/tockenizer.p", "rb" )) #load the tokenizer
+    tokenizer_obj = pickle.load(open( "tockenizer.p", "rb" )) #load the tokenizer
     treated_sequences = tokenizer_obj.texts_to_sequences(cleaned_tweet)
     paded_sequences = pad_sequences(treated_sequences, maxlen=max_lenth, padding="post")
-    model = tf.keras.models.load_model('api/model3.h5')
+    model = tf.keras.models.load_model('model3.h5')
     y_train_predict = model.predict(paded_sequences)
     y_train_predict = np.argmax(y_train_predict, axis=1 )
 

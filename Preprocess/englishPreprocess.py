@@ -96,7 +96,7 @@ def convert_emojis_to_word(text):
         import pickle
     import re
 
-    with open('api/Preprocess/Emoji_Dict.p', 'rb') as fp:
+    with open('Preprocess/Emoji_Dict.p', 'rb') as fp:
         Emoji_Dict = pickle.load(fp)
     Emoji_Dict = {v: k for k, v in Emoji_Dict.items()}
     for emot in Emoji_Dict:
